@@ -177,6 +177,13 @@
                             <hr>
                             <div class="form-group row my-2">
                                 <div class="offset-md-4 col-md-4">
+                                    <div class="alert alert-warning" role="alert" id="alertShipFast" style="display: none;">
+                                        Tipe kapal cepat tidak mengangkut kendaraan.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <div class="offset-md-4 col-md-4">
                                     <div class="alert alert-danger" role="alert" id="alertVehicle2Max" style="display: none;">
                                         Total Maksimum Kendaraan 2 adalah : <span></span>
                                     </div>
@@ -335,6 +342,18 @@
                         alertVehicle2Max.querySelector('span').innerHTML = shipSelected.max_vehicle_wheel_2
                     } else {
                         alertVehicle2Max.style.display = 'none'
+                    }
+
+                    // 
+                    const alertShipFast = document.querySelector('#alertShipFast')
+                    if (shipSelected.type == "Cepat (HSC)") {
+                        alertShipFast.style.display = 'block'
+                        inputCountVehicleWheel2.disabled = true
+                        inputCountVehicleWheel4.disabled = true
+                    } else {
+                        alertShipFast.style.display = 'none'
+                        inputCountVehicleWheel2.disabled = false
+                        inputCountVehicleWheel4.disabled = false
                     }
                 }
             }
