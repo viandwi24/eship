@@ -21,7 +21,7 @@
                         <div class="title">LOGIN</div>
                         <div class="header mb-3">
                             <div>SISTEM INFORMASI ANGKUTAN</div>
-                            <div>PENYEBRANGAN GRESIK - BAWEAN</div>
+                            <div>PENYEBERANGAN GRESIK - BAWEAN</div>
                         </div>
                         <x-message />
                         <form action="{{ route('login.post') }}" method="POST">
