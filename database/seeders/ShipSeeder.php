@@ -19,21 +19,21 @@ class ShipSeeder extends Seeder
     {
         Ship::create([
             'name' => 'KM. EXPRESS BAHARI BE',
-            'type' => 'Kapal Motor',
+            'type' => 'Non Cepat (Ro-Ro)',
             'max_pax' => 100,
             'max_vehicle_wheel_2' => 30,
             'max_vehicle_wheel_4' => 20,
         ]);
         Ship::create([
             'name' => 'KM. NATUNA EXPRESS',
-            'type' => 'Kapal Motor',
+            'type' => 'Non Cepat (Ro-Ro)',
             'max_pax' => 150,
             'max_vehicle_wheel_2' => 10,
             'max_vehicle_wheel_4' => 10,
         ]);
         Ship::create([
             'name' => 'KMP. GILIYANG',
-            'type' => 'Kapal Motor',
+            'type' => 'Non Cepat (Ro-Ro)',
             'max_pax' => 200,
             'max_vehicle_wheel_2' => 30,
             'max_vehicle_wheel_4' => 10,
