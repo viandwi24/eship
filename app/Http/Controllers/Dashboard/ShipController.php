@@ -83,12 +83,15 @@ class ShipController extends Controller
         // 
         DB::transaction(function () use ($data, $request, &$created) {
             $ship = Ship::create($data);
-            foreach ($request->days as $key => $day) 
+            if ($request->has('days'))
             {
-                $ship->schedules()->create([
-                    'day' => $request->days[$key],
-                    'time' => Carbon::parse($request->time[$key]),
-                ]);
+                foreach ($request->days as $key => $day) 
+                {
+                    $ship->schedules()->create([
+                        'day' => $request->days[$key],
+                        'time' => Carbon::parse($request->time[$key]),
+                    ]);
+                }
             }
         });
 
@@ -163,13 +166,16 @@ class ShipController extends Controller
         // 
         DB::transaction(function () use ($data, $ship, $request, &$updated) {
             $updated = $ship->update($data);
-            $ship->schedules()->delete();
-            foreach ($request->days as $key => $day) 
+            if ($request->has('days'))
             {
-                $ship->schedules()->create([
-                    'day' => $request->days[$key],
-                    'time' => Carbon::parse($request->time[$key]),
-                ]);
+                $ship->schedules()->delete();
+                foreach ($request->days as $key => $day) 
+                {
+                    $ship->schedules()->create([
+                        'day' => $request->days[$key],
+                        'time' => Carbon::parse($request->time[$key]),
+                    ]);
+                }
             }
         });
 
