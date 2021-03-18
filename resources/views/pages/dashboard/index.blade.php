@@ -76,7 +76,9 @@
                             @endforeach
                         </div>
                     </div>
+                    @php $color = 0; @endphp
                     @foreach ($reports['route'] as $route_key => $route)
+                        @php $color++; if ($color == 3) $color = 1; @endphp
                         <div class="col-lg-6">
                             <!-- panel:title -->
                             <div class="panel mb-4" style="background: #203450;">
@@ -89,78 +91,76 @@
                                 </div>
                             </div>
                             <!-- panel:sumarry -->
-                            <div class="panel panel-primary">
+                            <div class="panel panel-sumarry">
                                 <div class="overlay"></div>
-                                <div class="text-center tw-flex tw-w-full {{ ($route['id'] % 2 != 0) ? 'tw-flex-row' : 'tw-flex-row-reverse' }}">
-                                    <div class="tw-w-5/12 tw-flex tw-my-6 tw-mx-4 tw-flex-col">
-                                        <div class="tw-text-sm mb-4 tw-text-gray-100">
+                                <div class="text-center tw-flex tw-w-full {{ ($route['id'] % 2 != 0) ? 'tw-flex-row' : 'tw-flex-row-reverse' }} color-{{ $color }}">
+                                    <div class="tw-w-5/12 tw-flex tw-flex-col">
+                                        <div class="tw-text-sm mt-4 tw-text-gray-100">
                                             Jumlah PNP <br>
                                             {{ \Carbon\Carbon::now()->format('F Y') }}
                                         </div>
-                                        <div class="tw-flex tw-w-full">
+                                        <div class="tw-flex tw-w-full tw-py-6 tw-px-4">
                                             <div class="tw-flex-1 text-center">
                                                 <div class="d-inline">
                                                     <img src="{{ asset('icons/Dewasa.png') }}" width="38px" class="d-inline">
                                                 </div>
                                                 <div class="tw-text-gray-100">Dewasa</div>
-                                                <div class="tw-text-xl tw-text-gray-100">{{ $route['count_adult'] }}</div>
+                                                <div class="tw-text-xl tw-font-semibold tw-text-gray-100">{{ $route['count_adult'] }}</div>
                                             </div>
                                             <div class="tw-flex-1 text-center">
                                                 <div class="d-inline">
                                                     <img src="{{ asset('icons/Bayi.png') }}" width="38px" class="d-inline mt-2">
                                                 </div>
                                                 <div class="tw-text-gray-100">Bayi</div>
-                                                <div class="tw-text-xl tw-text-gray-100">{{ $route['count_baby'] }}</div>
+                                                <div class="tw-text-xl tw-font-semibold tw-text-gray-100">{{ $route['count_baby'] }}</div>
                                             </div>
                                             <div class="tw-flex-1 text-center">
                                                 <div class="d-inline">
                                                     <img src="{{ asset('icons/Anggota.png') }}" width="38px" class="d-inline">
                                                 </div>
                                                 <div class="tw-text-gray-100">Anggota</div>
-                                                <div class="tw-text-xl tw-text-gray-100">{{ $route['count_security_forces'] }}</div>
+                                                <div class="tw-text-xl tw-font-semibold tw-text-gray-100">{{ $route['count_security_forces'] }}</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tw-w-7/12 tw-flex tw-flex-col tw-my-6 tw-mx-4">
-                                        <div class="tw-text-sm mb-4 tw-text-gray-100">
+                                    <div class="tw-w-7/12 tw-flex tw-flex-col">
+                                        <div class="tw-text-sm mt-4 tw-text-gray-100">
                                             TOTAL JUMLAH PENUMPANG <br>
                                             {{ \Carbon\Carbon::now()->format('F Y') }}
                                         </div>
-                                        <div class="tw-flex tw-w-full">
+                                        <div class="tw-flex tw-w-full tw-py-6 tw-px-4">
                                             <div class="tw-flex-1 text-center">
                                                 <div class="d-inline">
                                                     <img src="{{ asset('icons/Penumpang.png') }}" width="38px" class="d-inline mt-3">
                                                 </div>
                                                 <div class="tw-text-gray-100">Penumpang</div>
-                                                <div class="tw-text-xl tw-text-gray-100">{{ $route['count_pax'] }}</div>
+                                                <div class="tw-text-xl tw-font-semibold tw-text-gray-100">{{ $route['count_pax'] }}</div>
                                             </div>
                                             <div class="tw-flex-1 text-center">
                                                 <div class="d-inline">
                                                     <img src="{{ asset('icons/Roda 2.png') }}" width="38px" class="d-inline mt-4">   
                                                 </div>
                                                 <div class="tw-text-gray-100">Roda 2</div>
-                                                <div class="tw-text-xl tw-text-gray-100">{{ $route['count_vehicle_wheel_2'] }}</div>
+                                                <div class="tw-text-xl tw-font-semibold tw-text-gray-100">{{ $route['count_vehicle_wheel_2'] }}</div>
                                             </div>
                                             <div class="tw-flex-1 text-center">
                                                 <div class="d-inline">
                                                     <img src="{{ asset('icons/Roda 4.png') }}" width="38px" class="d-inline tw-mt-8">   
                                                 </div>
                                                 <div class="tw-text-gray-100">Roda 4</div>
-                                                <div class="tw-text-xl tw-text-gray-100">{{ $route['count_vehicle_wheel_4'] }}</div>
+                                                <div class="tw-text-xl tw-font-semibold tw-text-gray-100">{{ $route['count_vehicle_wheel_4'] }}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- panel:chart -->
-                            <div class="card mt-4">
-                                <div class="card-header text-center">
+                            <div class="panel mt-4 p-4" style="display: block;">
+                                <div class="text-center tw-text-xl tw-font-semibold mb-2">
                                     Load Factor Keberangkatan 
                                     | {{ \Carbon\Carbon::now()->format('F Y') }}
                                 </div>
-                                <div class="card-body">
-                                    <canvas id="chartLoadFactor-{{ $route_key }}"></canvas>
-                                </div>
+                                <canvas id="chartLoadFactor-{{ $route_key }}"></canvas>
                             </div>
                             {{-- <div class="card mt-4">
                                 <div class="card-header text-center">
@@ -192,6 +192,11 @@
         .panel-ship-1 { background: linear-gradient(to bottom left, #70C76E, #14B4CC); }
         .panel-ship-2 { background: linear-gradient(to bottom left, #F8CA7D, #F29B7E); }
         .panel-ship-3 { background: linear-gradient(to bottom left, #51ACDE, #4590CC); }
+
+        .panel-sumarry .color-1 > div:nth-child(1) { background: linear-gradient(to bottom right, #92CE4C, #40BD9F); }
+        .panel-sumarry .color-1 > div:nth-child(2) { background: linear-gradient(to bottom left, #8DCD50, #17B5C8); }
+        .panel-sumarry .color-2 > div:nth-child(1) { background: linear-gradient(to bottom right, #4590CC, #54B4E4); }
+        .panel-sumarry .color-2 > div:nth-child(2) { background: linear-gradient(to bottom right, #4590CC, #54B4E4); }
     </style>
 @endpush
 
