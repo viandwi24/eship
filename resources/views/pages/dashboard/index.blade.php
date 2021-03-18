@@ -79,7 +79,7 @@
                     @php $color = 0; @endphp
                     @foreach ($reports['route'] as $route_key => $route)
                         @php $color++; if ($color == 3) $color = 1; @endphp
-                        <div class="col-lg-6">
+                        <div class="col-lg-12 col-xl-6">
                             <!-- panel:title -->
                             <div class="panel mb-4" style="background: #203450;">
                                 <div class="overlay"></div>
@@ -94,41 +94,41 @@
                             <div class="panel panel-sumarry">
                                 <div class="overlay"></div>
                                 <div class="text-center tw-flex tw-w-full {{ ($route['id'] % 2 != 0) ? 'tw-flex-row' : 'tw-flex-row-reverse' }} color-{{ $color }}">
-                                    <div class="tw-w-5/12 tw-flex tw-flex-col">
+                                    <div class="tw-w-full lg:tw-w-5/12 tw-flex tw-flex-col">
                                         <div class="tw-text-sm mt-4 tw-text-gray-100">
                                             Jumlah PNP <br>
                                             {{ \Carbon\Carbon::now()->format('F Y') }}
                                         </div>
-                                        <div class="tw-flex tw-w-full tw-py-6 tw-px-4">
+                                        <div class="tw-flex tw-w-full tw-pt-10 tw-px-4">
                                             <div class="tw-flex-1 text-center">
                                                 <div class="d-inline">
-                                                    <img src="{{ asset('icons/Dewasa.png') }}" width="38px" class="d-inline">
+                                                    <img src="{{ asset('icons/Dewasa.png') }}" width="22px" class="d-inline" style="margin-top: 0px;">
                                                 </div>
                                                 <div class="tw-text-gray-100">Dewasa</div>
                                                 <div class="tw-text-xl tw-font-semibold tw-text-gray-100">{{ $route['count_adult'] }}</div>
                                             </div>
                                             <div class="tw-flex-1 text-center">
                                                 <div class="d-inline">
-                                                    <img src="{{ asset('icons/Bayi.png') }}" width="38px" class="d-inline mt-2">
+                                                    <img src="{{ asset('icons/Bayi.png') }}" width="22px" class="d-inline" style="margin-top: 5px;">
                                                 </div>
                                                 <div class="tw-text-gray-100">Bayi</div>
                                                 <div class="tw-text-xl tw-font-semibold tw-text-gray-100">{{ $route['count_baby'] }}</div>
                                             </div>
                                             <div class="tw-flex-1 text-center">
                                                 <div class="d-inline">
-                                                    <img src="{{ asset('icons/Anggota.png') }}" width="38px" class="d-inline">
+                                                    <img src="{{ asset('icons/Anggota.png') }}" width="22px" class="d-inline">
                                                 </div>
                                                 <div class="tw-text-gray-100">Anggota</div>
                                                 <div class="tw-text-xl tw-font-semibold tw-text-gray-100">{{ $route['count_security_forces'] }}</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tw-w-7/12 tw-flex tw-flex-col">
+                                    <div class="tw-w-full lg:tw-w-7/12 tw-flex tw-flex-col">
                                         <div class="tw-text-sm mt-4 tw-text-gray-100">
                                             TOTAL JUMLAH PENUMPANG <br>
                                             {{ \Carbon\Carbon::now()->format('F Y') }}
                                         </div>
-                                        <div class="tw-flex tw-w-full tw-py-6 tw-px-4">
+                                        <div class="tw-flex tw-w-full tw-py-5 tw-px-4">
                                             <div class="tw-flex-1 text-center">
                                                 <div class="d-inline">
                                                     <img src="{{ asset('icons/Penumpang.png') }}" width="38px" class="d-inline mt-3">
