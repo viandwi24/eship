@@ -93,13 +93,13 @@
                             <!-- panel:sumarry -->
                             <div class="panel panel-sumarry">
                                 <div class="overlay"></div>
-                                <div class="text-center tw-flex tw-w-full {{ ($route['id'] % 2 != 0) ? 'tw-flex-row' : 'tw-flex-row-reverse' }} color-{{ $color }}">
+                                <div class="text-center tw-flex tw-flex-col lg:tw-flex-row tw-w-full {{ ($route['id'] % 2 != 0) ? 'tw-flex-row' : 'tw-flex-row-reverse' }} color-{{ $color }}">
                                     <div class="tw-w-full lg:tw-w-5/12 tw-flex tw-flex-col">
                                         <div class="tw-text-sm mt-4 tw-text-gray-100">
                                             Jumlah PNP <br>
                                             {{ \Carbon\Carbon::now()->format('F Y') }}
                                         </div>
-                                        <div class="tw-flex tw-w-full tw-pt-10 tw-px-4">
+                                        <div class="tw-flex tw-w-full tw-pt-10 tw-pb-6 tw-px-4">
                                             <div class="tw-flex-1 text-center">
                                                 <div class="d-inline">
                                                     <img src="{{ asset('icons/Dewasa.png') }}" width="22px" class="d-inline" style="margin-top: 0px;">
