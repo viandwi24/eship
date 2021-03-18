@@ -43,7 +43,7 @@
                                                     </div>
                                                     <div>
                                                         <span class="tw-inline-block" style="margin-top: -10px;">
-                                                            <img src="{{ asset('icons/Status.png') }}" width="20px" class="d-inline">
+                                                            <img src="{{ asset('icons/Keterangan.png') }}" width="18px" class="d-inline">
                                                         </span>
                                                         <span class="tw-pt-2 tw-inline-block tw-text-xs">
                                                             @if ($state == null) - @else {{ $state->description }} @endif
