@@ -10,6 +10,7 @@ use App\Http\Controllers\Dashboard\ShipOperationController as DashboardShipOpera
 use App\Http\Controllers\Dashboard\ShipReportController as DashboardShipReportController;
 use App\Http\Controllers\Dashboard\RouteController as DashboardRouteController;
 use App\Http\Controllers\Dashboard\ReportController as DashboardReportController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,13 +25,17 @@ use App\Http\Controllers\Dashboard\ReportController as DashboardReportController
 Route::get('/', function () {
     return redirect()->route('login');
 });
+Route::get('/home', function () {
+    if (Auth::user()->role == 'Admin') return redirect()->route('dashboard');
+    if (Auth::user()->role == 'Petugas') return redirect()->route('ship-reports.index');
+})->middleware('auth');
 
 Route::group([
     'prefix' => 'dashboard',
     'middleware' => ['auth']
 ], function () {
     // 
-    Route::get('/', [DashboardHomeController::class, 'index'])->name('dashboard');
+    Route::get('/', [DashboardHomeController::class, 'index'])->name('dashboard')->middleware('role:admin');
     Route::get('/profil', [AuthController::class, 'profile'])->name('profile');
     Route::post('/profil', [AuthController::class, 'profile_post'])->name('profile.post');
 

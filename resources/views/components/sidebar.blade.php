@@ -15,7 +15,7 @@
     //     [ 'role' => ['Admin'], 'type' => 'item', 'text' => 'Akun', 'icon' => 'people', 'route' => route('users.index'), 'regex' => '*users*' ],
     // ];
     $menus = [
-        [ 'role' => [], 'type' => 'item', 'text' => 'Dashboard', 'icon' => null, 'img' => '<img src="'.asset('icons/Dashboard.png').'" width="26px" class="icon tw-inline-block tw-mt-1">', 'route' => route('dashboard'), 'regex' => 'dashboard' ],
+        [ 'role' => ['Admin'], 'type' => 'item', 'text' => 'Dashboard', 'icon' => null, 'img' => '<img src="'.asset('icons/Dashboard.png').'" width="26px" class="icon tw-inline-block tw-mt-1">', 'route' => route('dashboard'), 'regex' => 'dashboard' ],
         [ 'role' => [], 'type' => 'item', 'text' => 'Profil', 'icon' => null, 'img' => '<img src="'.asset('icons/Anggota.png').'" width="22px" class="icon tw-inline-block">', 'route' => route('profile'), 'regex' => 'dashboard/profil' ],
         [ 'role' => ['Admin'], 'type' => 'header', 'text' => 'Administrasi' ],
         [ 'role' => ['Admin'], 'type' => 'item', 'text' => 'Kapal', 'icon' => null, 'img' => '<img src="'.asset('icons/Kapal.png').'" width="32px" class="icon tw-inline-block tw-mt-2">', 'route' => route('ships.index'), 'regex' => '*ships*' ],

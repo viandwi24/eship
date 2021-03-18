@@ -22,7 +22,7 @@ class AuthController extends Controller
         ]);
 
         $check = Auth::attempt(['username' => $request->username, 'password' => $request->password]);
-        if ($check) return redirect()->route('dashboard');
+        if ($check) return redirect('/home');
         return redirect()->route('login')->withInput(['username'])->with('message', ['type' => 'danger', 'text' => 'Kredensial tidak sesuai dengan akun manapun.']);
     }
 
