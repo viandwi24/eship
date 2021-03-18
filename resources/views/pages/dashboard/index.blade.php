@@ -20,10 +20,12 @@
                 <div class="row my-4">
                     <div class="col-12 mb-2">
                         <div class="row">
+                            @php $color = 0; @endphp
                             @foreach ($ships as $ship)
+                                @php $color++; if ($color == 4) $color = 1; @endphp
                                 <div class="col-lg-4 col-sm-12">
                                     <!-- panel:sumarry -->
-                                    <div class="panel panel-success">
+                                    <div class="panel panel-ship-{{ $color }}">
                                         <div class="tw-w-full mx-4 my-4">
                                             <div class="tw-w-full">
                                                 <span class="tw-text-lg tw-font-semibold tw-text-gray-100">{{ $ship->name }}</span>
@@ -64,7 +66,7 @@
                                                     </div>
                                                     <div class="text-center tw-float-right tw-text-gray-100 tw-mt-2 tw-mr-2">
                                                         <div class="tw-text-xs">Kapasitas</div>
-                                                        <div>{{ $ship->max_pax }}</div>
+                                                        <div class="tw-text-2xl tw-font-semibold">{{ $ship->max_pax }}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,10 +79,10 @@
                     @foreach ($reports['route'] as $route_key => $route)
                         <div class="col-lg-6">
                             <!-- panel:title -->
-                            <div class="panel panel-primary mb-4">
+                            <div class="panel mb-4" style="background: #203450;">
                                 <div class="overlay"></div>
                                 <div class="content text-center">
-                                    <div class="title">
+                                    <div class="title tw-text-xl tw-font-semibold">
                                         {{ $route['departure'] }}
                                         {{-- - {{ $route->arrival }} --}}
                                     </div>
@@ -183,6 +185,14 @@
 
 @push('scripts-library')
     <script src="{{ asset('vendor/chart.js/Chart.bundle.min.js') }}"></script>
+@endpush
+
+@push('styles')
+    <style>
+        .panel-ship-1 { background: linear-gradient(to bottom left, #70C76E, #14B4CC); }
+        .panel-ship-2 { background: linear-gradient(to bottom left, #F8CA7D, #F29B7E); }
+        .panel-ship-3 { background: linear-gradient(to bottom left, #51ACDE, #4590CC); }
+    </style>
 @endpush
 
 @push('scripts')
