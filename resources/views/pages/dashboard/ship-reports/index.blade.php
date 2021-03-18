@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Laporan Kapal')
+@section('title', 'Pelaporan Kapal')
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
         <div class="content-header">
             <div class="header">
                 <div class="title">
-                    Laporan Kapal
+                    Pelaporan Kapal
                 </div>
                 <div class="actions">
                     <a class="btn btn-primary" href="{{ route('ship-reports.create') }}">Tambah</a></li>
@@ -17,7 +17,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Laporan Kapal</li>
+                    <li class="breadcrumb-item active" aria-current="page">Pelaporan Kapal</li>
                 </ol>
             </nav>
         </div>

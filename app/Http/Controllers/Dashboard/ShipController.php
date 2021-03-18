@@ -57,7 +57,7 @@ class ShipController extends Controller
         // 
         $request->validate([
             'name' => 'required|string|min:3|max:250',
-            'type' => 'required|string|in:Non Cepat (Ro-Ro),Kapal Cepat (HSC)',
+            'type' => 'required|string|in:Non Cepat (Ro-Ro),Cepat (HSC)',
         ]);
         $defaultForNumberInput = ['max_pax', 'max_vehicle_wheel_2', 'max_vehicle_wheel_4'];
         foreach ($defaultForNumberInput as $input)
@@ -136,7 +136,7 @@ class ShipController extends Controller
             $data['name'] = $request->name;
         }
         if ($ship->type != $request->type) {
-            $rules['type'] = 'required|string|in:Non Cepat (Ro-Ro),Kapal Cepat (HSC)';
+            $rules['type'] = 'required|string|in:Non Cepat (Ro-Ro),Cepat (HSC)';
             $data['type'] = $request->type;
         }
         $request->validate($rules);

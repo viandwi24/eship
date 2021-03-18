@@ -62,7 +62,7 @@
                                         </span>
                                         <select name="type" class="form-select" autocomplete="off">
                                             <option value="Non Cepat (Ro-Ro)">Non Cepat (Ro-Ro)</option>
-                                            <option value="Kapal Cepat (HSC)">Kapal Cepat (HSC)</option>
+                                            <option value="Cepat (HSC)">Cepat (HSC)</option>
                                         </select>
                                     </div>
                                 </div>

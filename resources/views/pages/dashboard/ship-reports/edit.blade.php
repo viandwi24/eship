@@ -22,7 +22,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb"> 
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item">Laporan Kapal</li>
+                    <li class="breadcrumb-item">Pelaporan Kapal</li>
                     <li class="breadcrumb-item active" aria-current="page">Edit</li>
                 </ol>
             </nav>
