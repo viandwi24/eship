@@ -28,6 +28,7 @@ Route::get('/', function () {
 Route::get('/home', function () {
     if (Auth::user()->role == 'Admin') return redirect()->route('dashboard');
     if (Auth::user()->role == 'Petugas') return redirect()->route('ship-reports.index');
+    if (Auth::user()->role == 'Supervisor') return redirect()->route('reports');
 })->middleware('auth');
 
 Route::group([
@@ -48,8 +49,8 @@ Route::group([
     Route::resource('/ship-reports', DashboardShipReportController::class)->middleware('role:admin,petugas');
 
     // 
-    Route::get('/reports', [DashboardReportController::class, 'index'])->middleware('role:admin')->name('reports');
-    Route::get('/reports/export', [DashboardReportController::class, 'export'])->middleware('role:admin')->name('reports.export');
+    Route::get('/reports', [DashboardReportController::class, 'index'])->middleware('role:admin,supervisor')->name('reports');
+    Route::get('/reports/export', [DashboardReportController::class, 'export'])->middleware('role:admin,supervisor')->name('reports.export');
 });
 
 // 

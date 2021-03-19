@@ -27,5 +27,11 @@ class UserSeeder extends Seeder
             'password' => Hash::make('petugas'),
             'role' => 'Petugas'
         ]);
+        User::create([
+            'username' => 'supervisor',
+            'name' => 'Contoh User supervisor',
+            'password' => Hash::make('supervisor'),
+            'role' => 'Supervisor'
+        ]);
     }
 }
