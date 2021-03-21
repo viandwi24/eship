@@ -18,8 +18,9 @@ class CreateShipOperationsTable extends Migration
             $table->foreignId('ship_id')->onUpdate('cascade')->onDelete('cascade');
             $table->date('date');
             $table->enum('status', ['Beroperasi', 'Tidak Beroperasi']);
-            $table->enum('description', ['Aman', 'Cuaca Buruk', 'Perbaikan Mesin', 'Docking']);
+            $table->enum('description', ['Aman', 'Cuaca Buruk', 'Perbaikan Mesin', 'Docking', 'Lainnya']);
             $table->string('location');
+            $table->longText('note')->nullable();
             $table->timestamps();
         });
     }

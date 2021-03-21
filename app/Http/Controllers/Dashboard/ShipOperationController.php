@@ -57,8 +57,9 @@ class ShipOperationController extends Controller
             'ship_id' => 'required|numeric',
             'date' => 'required|date',
             'status' => 'required|in:Beroperasi,Tidak Beroperasi',
-            'description' => 'required|in:Aman,Cuaca Buruk,Perbaikan Mesin,Docking',
+            'description' => 'required|in:Aman,Cuaca Buruk,Perbaikan Mesin,Docking,Lainnya',
             'location' => 'required|string|min:3|max:250',
+            'note' => 'nullable|string',
         ]);
 
         // 
@@ -142,12 +143,16 @@ class ShipOperationController extends Controller
             $data['status'] = $request->status;
         }
         if ($shipOperation->description != $request->description) {
-            $rules['description'] = 'required|in:Aman,Cuaca Buruk,Perbaikan Mesin,Docking';
+            $rules['description'] = 'required|in:Aman,Cuaca Buruk,Perbaikan Mesin,Docking,Lainnya';
             $data['description'] = $request->description;
         }
         if ($shipOperation->location != $request->location) {
             $rules['location'] = 'required|string|min:3|max:250';
             $data['location'] = $request->location;
+        }
+        if ($shipOperation->note != $request->note) {
+            $rules['note'] = 'nullable|string';
+            $data['note'] = $request->note;
         }
         if ($request->status == 'Tidak Beroperasi' && $request->description == 'Cuaca Buruk' && $request->hasFile('file'))
         {

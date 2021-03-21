@@ -69,9 +69,7 @@ class ShipReportController extends Controller
             'route_id' => 'required|numeric',
             'date' => 'required|date',
             'time' => 'required',
-            'count_adult' => 'required|numeric|min:0',
-            'count_baby' => 'required|numeric|min:0',
-            'count_security_forces' => 'required|numeric|min:0',
+            'note' => 'nullable|string',
         ];
         if ($request->hasFile('photo_embarkation')) $rules['photo_embarkation'] = 'required|file|mimes:png,jpeg,jpg,bmp';
         if ($request->hasFile('photo_departure')) $rules['photo_departure'] = 'required|file|mimes:png,jpeg,jpg,bmp';
@@ -84,7 +82,7 @@ class ShipReportController extends Controller
         $route = Route::findOrFail($request->route_id);
 
         // 
-        $defaultForNumberInput = ['count_vehicle_wheel_2', 'count_vehicle_wheel_4'];
+        $defaultForNumberInput = ['count_adult', 'count_baby', 'count_security_forces', 'count_vehicle_wheel_2', 'count_vehicle_wheel_4'];
         foreach ($defaultForNumberInput as $input)
         {
             if ($request->has($input))
@@ -178,9 +176,7 @@ class ShipReportController extends Controller
             'route_id' => 'required|numeric',
             'date' => 'required|date',
             'time' => 'required',
-            'count_adult' => 'required|numeric|min:0',
-            'count_baby' => 'required|numeric|min:0',
-            'count_security_forces' => 'required|numeric|min:0',
+            'note' => 'nullable|string',
         ];
         if ($request->hasFile('photo_embarkation')) $rules['photo_embarkation'] = 'required|file|mimes:png,jpeg,jpg,bmp';
         if ($request->hasFile('photo_departure')) $rules['photo_departure'] = 'required|file|mimes:png,jpeg,jpg,bmp';
@@ -195,7 +191,7 @@ class ShipReportController extends Controller
 
 
         // 
-        $defaultForNumberInput = ['count_vehicle_wheel_2', 'count_vehicle_wheel_4'];
+        $defaultForNumberInput = ['count_adult', 'count_baby', 'count_security_forces', 'count_vehicle_wheel_2', 'count_vehicle_wheel_4'];
         foreach ($defaultForNumberInput as $input)
         {
             if ($request->has($input))

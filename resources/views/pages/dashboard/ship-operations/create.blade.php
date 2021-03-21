@@ -100,6 +100,7 @@
                                             <option value="Cuaca Buruk">Cuaca Buruk</option>
                                             <option value="Perbaikan Mesin">Perbaikan Mesin</option>
                                             <option value="Docking">Docking</option>
+                                            <option value="Lainnya">Lainnya</option>
                                         </select>
                                     </div>
                                 </div>
@@ -121,6 +122,12 @@
                                         </span>
                                         <input type="text" name="location" class="form-control" autocomplete="off" placeholder="Lokasi">
                                     </div>
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Catatan</label>
+                                <div class="col-md-4">
+                                    <textarea name="note" class="form-control" placeholder="Catatan">{{ old('note') }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row my-2">

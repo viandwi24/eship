@@ -127,6 +127,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Catatan</label>
+                                <div class="col-md-4">
+                                    <textarea name="note" class="form-control" placeholder="Catatan">{{ old('note', $shipReport->note) }}</textarea>
+                                </div>
+                            </div>
                             <hr>
                             <div class="form-group row my-2">
                                 <div class="offset-md-4 col-md-4">

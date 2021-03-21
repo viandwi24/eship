@@ -20,6 +20,7 @@ class ShipOperation extends Model
         'status',
         'description',
         'location',
+        'note',
     ];
 
     /**

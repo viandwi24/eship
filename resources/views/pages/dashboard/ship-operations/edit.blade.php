@@ -101,6 +101,7 @@
                                             <option value="Cuaca Buruk" {{ old('description', $shipOperation->description) == 'Cuaca Buruk' ? 'selected' : '' }}>Cuaca Buruk</option>
                                             <option value="Perbaikan Mesin" {{ old('description', $shipOperation->description) == 'Perbaikan Mesin' ? 'selected' : '' }}>Perbaikan Mesin</option>
                                             <option value="Docking" {{ old('description', $shipOperation->description) == 'Docking' ? 'selected' : '' }}>Docking</option>
+                                            <option value="Lainnya" {{ old('description', $shipOperation->description) == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
                                         </select>
                                     </div>
                                 </div>
@@ -127,6 +128,12 @@
                                         </span>
                                         <input type="text" name="location" class="form-control" autocomplete="off" placeholder="Lokasi" value="{{ old('location', $shipOperation->location) }}">
                                     </div>
+                                </div>
+                            </div>
+                            <div class="form-group row my-2">
+                                <label class="col-sm-4 col-form-label text-md-end">Catatan</label>
+                                <div class="col-md-4">
+                                    <textarea name="note" class="form-control" placeholder="Catatan">{{ old('note', $shipOperation->note) }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row my-2">

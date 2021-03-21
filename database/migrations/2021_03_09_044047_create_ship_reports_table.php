@@ -27,6 +27,7 @@ class CreateShipReportsTable extends Migration
             $table->integer('count_vehicle_wheel_4')->default(0);
             $table->string('photo_embarkation', 255)->nullable();
             $table->string('photo_departure', 255)->nullable();
+            $table->longText('note')->nullable();
             $table->timestamps();
         });
     }

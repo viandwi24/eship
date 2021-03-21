@@ -27,6 +27,7 @@ class ShipReport extends Model
         'count_vehicle_wheel_4',
         'photo_embarkation',
         'photo_departure',
+        'note',
     ];
 
     /**
